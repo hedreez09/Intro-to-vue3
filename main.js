@@ -2,7 +2,16 @@ const app = Vue.createApp({
     data(){
         return{
             product:'Socks',
-            description: 'This is a winter socks'
+            image: './assets/images/socks_green.jpg',
+            url: 'https://github.com/hedreez09/',
+            inventory: 20,
+            onSale: true,
+            details: ['50% cotton', '30% wool', '20% polyester'],
+            sizes:['S','M','L','XL'],
+            variants:[
+                {id: 2234, color: 'green'},
+                {id: 2235, color: 'blue'}
+            ]
         }
     }
 })
