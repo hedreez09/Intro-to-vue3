@@ -1,17 +1,25 @@
 const app = Vue.createApp({
     data(){
         return{
+            cart:0,
             product:'Socks',
             image: './assets/images/socks_green.jpg',
             url: 'https://github.com/hedreez09/',
-            inventory: 20,
-            onSale: true,
+            inStock: true,
             details: ['50% cotton', '30% wool', '20% polyester'],
-            sizes:['S','M','L','XL'],
             variants:[
-                {id: 2234, color: 'green'},
-                {id: 2235, color: 'blue'}
+                {id: 2234, color: 'green',image: './assets/images/socks_green.jpg' },
+                {id: 2235, color: 'blue',image: './assets/images/socks_blue.jpg'}
             ]
         }
+    },
+    methods: {
+        addToCart(){
+            this.cart += 1
+        },
+        updateImage(variantImage){
+            this.image = variantImage
+        } 
     }
+    
 })
