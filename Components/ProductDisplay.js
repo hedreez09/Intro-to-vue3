@@ -33,6 +33,13 @@ template:
             @click="addToCart">
             Add to Cart
           </button>
+          <button 
+          class="button" 
+          :class="{ disabledButton: !inStock }" 
+          :disabled="!inStock" 
+          @click="removeFromCart">
+          Remove Item
+        </button>
           </div>
         </div>
       </div>`,
@@ -52,13 +59,17 @@ template:
         }
     },
     methods: {
-        addToCart(){
-            this.cart += 1
+        addToCart(){/*this help to add the selected item to cart*/ 
+            this.$emit('add-to-cart',this.variants[this.selectedVariant].id)
+        },
+        removeFromCart(){
+            this.$emit('remove-from-cart',this.variants[this.selectedVariant].id)
         },
         updateVariant(index){
             this.selectedVariant = index
             console.log(index)
-        } 
+        }
+        
     },
     computed:{
         title(){
